@@ -18,12 +18,18 @@ namespace EthosInc.Controllers
             _logger = logger;
         }
 
+        /* Webpage Views */
         public IActionResult Index()
         {
             return View();
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        public IActionResult About()
         {
             return View();
         }
