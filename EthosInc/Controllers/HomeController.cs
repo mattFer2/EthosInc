@@ -24,25 +24,31 @@ namespace EthosInc.Controllers
             return View();
         }
 
+        [Route("Privacy")] /* [Route()] hides the "/home/" from the URL (https://stackoverflow.com/a/22828147) */
         public IActionResult Privacy()
         {
             return View();
         }
 
+        [Route("About")]
         public IActionResult About()
         {
             return View();
         }
 
+        [Route("FAQ")]
         public IActionResult FAQ()
         {
             return View();
         }
 
+        [Route("Login")]
         public IActionResult Login()
         {
             return View();
         }
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
