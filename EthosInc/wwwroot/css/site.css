@@ -101,10 +101,13 @@ body {
 
 /* FAQ boxes */
 .question {
-    width: 70%;
-    height: 50%;
-    border: 1px solid black;
+    width: 100%;
+    border: 1px solid #1b4dc2;
     margin: 5px auto;
-    padding: 10px;
-    padding-top: 20px;
+    padding: 20px;
+}
+
+.answer {
+    margin-bottom: 10px;
+    padding-top: 2rem !important;
 }

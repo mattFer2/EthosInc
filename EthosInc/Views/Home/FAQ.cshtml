@@ -8,11 +8,36 @@
 </head>
 <html>
     <body>
-        <div class="question">
-            <p>This is question 1: And this is answer 1.</p>
+        <div class="text-center">
+            <h1 class="display-4" style="font-size: 3rem !important;">Frequently Asked Questions</h1>
+            <p>Click on any of the buttons to display the answer to their question.</p>
         </div>
-        <div class="question">
-            <p>This is question 2: And this is answer 2.</p>
+        
+
+        @* FAQ Boxes*@
+        <div>
+            <button class="btn btn-primary question" type="button" data-target="#question1" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+                This is question 1:
+            </button>
+            <div class="collapse" id="question1">
+                <div class="card card-body answer">
+                    <p>And this is answer 1.</p>
+                </div>
+            </div>
+
+            <button class="btn btn-primary question" type="button" data-toggle="collapse" data-target="#question2" aria-expanded="false" aria-controls="collapseExample">
+                This is question 2:
+            </button>
+            <div class="collapse" id="question2">
+                <div class="card card-body answer">
+                    <p>And this is answer 2.</p>
+                </div>
+            </div>
+
+            @* Remember to change id="question[NUM]" and data-target-"#question[NUM]"
+               after adding another question or it won't work properly!*@
         </div>
+
+
     </body>
 </html>
