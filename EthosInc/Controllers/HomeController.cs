@@ -36,6 +36,12 @@ namespace EthosInc.Controllers
             return View();
         }
 
+        [Route("Shop")]
+        public IActionResult Shop()
+        {
+            return View();
+        }
+
         [Route("FAQ")]
         public IActionResult FAQ()
         {
