@@ -24,8 +24,8 @@ namespace EthosInc.Controllers
             return View();
         }
 
-        [Route("Privacy")] /* [Route()] hides the "/home/" from the URL (https://stackoverflow.com/a/22828147) */
-        public IActionResult Privacy()
+        [Route("Policy")] /* [Route()] hides the "/home/" from the URL (https://stackoverflow.com/a/22828147) */
+        public IActionResult Policy()
         {
             return View();
         }
@@ -50,12 +50,6 @@ namespace EthosInc.Controllers
 
         [Route("Login")]
         public IActionResult Login()
-        {
-            return View();
-        }
-
-        [Route("Shop")]
-        public IActionResult Shop()
         {
             return View();
         }
