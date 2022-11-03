@@ -14,30 +14,67 @@
         </div>
         
 
-        @* FAQ Boxes*@
+        @* FAQ Boxes *@
+
         <div>
+            @* Question 1 *@
             <button class="btn btn-primary question" type="button" data-target="#question1" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
-                This is question 1:
+                What does your store sell?
             </button>
             <div class="collapse" id="question1">
                 <div class="card card-body answer">
-                    <p>And this is answer 1.</p>
+                    <p>We sell computing hardware products, including GPU's, CPU's, RAM, storage, motherboards, and more.</p>
                 </div>
             </div>
 
+            @* Question 2 *@
             <button class="btn btn-primary question" type="button" data-toggle="collapse" data-target="#question2" aria-expanded="false" aria-controls="collapseExample">
-                This is question 2:
+                Where did the name "Ethos" come from?
             </button>
             <div class="collapse" id="question2">
                 <div class="card card-body answer">
-                    <p>And this is answer 2.</p>
+                    <p>"Ethos" is a Greek word which is used to refer to ethics, character, and credibility.</p>
+                </div>
+            </div>
+
+            @* Question 3 *@
+            <button class="btn btn-primary question" type="button" data-toggle="collapse" data-target="#question3" aria-expanded="false" aria-controls="collapseExample">
+                Where can I find your shipping policy?
+            </button>
+            <div class="collapse" id="question3">
+                <div class="card card-body answer">
+                    <p>All of our policies are listed under the "Policy" page, found in either the navigation bar at the top or footer at the bottom of the page.
+                       <br/>Alternatively, you can click <a href="~/Policy" style="font-weight:bold">here.</a></p>
+                </div>
+            </div>
+            
+            @* Question 4 *@
+            <button class="btn btn-primary question" type="button" data-toggle="collapse" data-target="#question4" aria-expanded="false" aria-controls="collapseExample">
+                What if my product is taking longer to ship than expected?
+            </button>
+            <div class="collapse" id="question4">
+                <div class="card card-body answer">
+                    <p>
+                    Please allow up to 30 days for your product to arrive. If 30 days passes, <b>contact our support team</b> using the phone
+                    number or email address listed in the about page, and have your order number ready so we can quickly resolve the issue.
+                    </p>
+                </div>
+            </div>
+
+            @* Question 5 *@
+            <button class="btn btn-primary question" type="button" data-toggle="collapse" data-target="#question5" aria-expanded="false" aria-controls="collapseExample">
+                This is a question...
+            </button>
+            <div class="collapse" id="question5">
+                <div class="card card-body answer">
+                    <p>
+                        ...And this is an answer
+                    </p>
                 </div>
             </div>
 
             @* Remember to change id="question[NUM]" and data-target-"#question[NUM]"
                after adding another question or it won't work properly!*@
         </div>
-
-
     </body>
 </html>

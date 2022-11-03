@@ -54,6 +54,12 @@ namespace EthosInc.Controllers
             return View();
         }
 
+        [Route("Cart")]
+        public IActionResult Cart()
+        {
+            return View();
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
