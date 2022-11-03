@@ -48,6 +48,11 @@ namespace EthosInc.Controllers
             return View();
         }
 
+        [Route("Shop")]
+        public IActionResult Shop()
+        {
+            return View();
+        }
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
