@@ -1,6 +1,7 @@
 ﻿using EthosInc.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SportsStore.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -50,12 +51,6 @@ namespace EthosInc.Controllers
 
         [Route("Login")]
         public IActionResult Login()
-        {
-            return View();
-        }
-
-        [Route("Shop")]
-        public IActionResult Shop()
         {
             return View();
         }
