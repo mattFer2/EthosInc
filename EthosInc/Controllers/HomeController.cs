@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace EthosInc.Controllers
@@ -12,10 +14,11 @@ namespace EthosInc.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private IProductRepository repository;
+        public HomeController(ILogger<HomeController> logger, IProductRepository repo)
         {
             _logger = logger;
+            repository = repo;
         }
 
         /* Webpage Views */
@@ -36,17 +39,14 @@ namespace EthosInc.Controllers
             return View();
         }
 
-        [Route("Shop")]
-        public IActionResult Shop()
-        {
-            return View();
-        }
-
         [Route("FAQ")]
         public IActionResult FAQ()
         {
             return View();
         }
+
+        [Route("Shop")]
+        public ViewResult Shop() => View(repository.Products);
 
         [Route("Login")]
         public IActionResult Login()
