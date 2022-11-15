@@ -5,7 +5,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-    <Folder Include="wwwroot\Product-Pictures\" />
+      <Compile Remove="wwwroot\Product-Pictures\**" />
+      <Content Remove="wwwroot\Product-Pictures\**" />
+      <EmbeddedResource Remove="wwwroot\Product-Pictures\**" />
+      <None Remove="wwwroot\Product-Pictures\**" />
     </ItemGroup>
 	
     <ItemGroup>
@@ -23,5 +26,9 @@
         <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" /> 
         <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3" /> 
       </ItemGroup>
+	
+    <ItemGroup>
+      <None Include="wwwroot\ProductImages\Product1\1.png" />
+    </ItemGroup>
 
 </Project>
