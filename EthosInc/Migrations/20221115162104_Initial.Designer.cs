@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EthosInc.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221103153425_Initial")]
+    [Migration("20221115162104_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
