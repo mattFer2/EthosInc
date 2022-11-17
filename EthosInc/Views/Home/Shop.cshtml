@@ -10,26 +10,31 @@
 <html>
     <div class="text-center">
         <h1 class="display-4">Shop</h1>
-        <p>This is where we will list our products for sale, 
-            probably using a database like in the 
-            Project examples in Canvas or whatever</p>
+        <p>Here is a list of the products we currently have for sale.
+           <br/>
+           Press the "Add to Cart" button if you want to purchase an item.
+        </p>
     </div>
-    @model IEnumerable<Product>
-    @foreach (var p in Model)
-    {
-       @* To-Do: Adjust the CSS to make it look better and have multiple items in one row *@ 
-        <div class="card">
-            <img class="card-img-top" style="max-width: 400px;" src="https://m.media-amazon.com/images/I/818R7E0341L.jpg">
+    
+
+    <div class="card-deck">
+        @model IEnumerable<Product>
+        @foreach (var p in Model)
+        {
+        @* To-Do: Adjust the CSS to make it look better and have multiple items in one row *@
+        <div class="card bg-dark text-light w-100 m-1" style="">
+            <img class="card-img-top" style="min-height: 40%; max-height: 40%;" src="@p.Pictures">
             <div class="card-body">
                 <div class="card-title">
-                    <h3>@p.Name</h3>
+                    <h3 style="text-decoration: underline;">@p.Name</h3>
                 </div>
                 <div class="card-text">
                     <h4>@p.Price.ToString("c")</h4>
                     <h5>@p.Description</h5>
-                <a href="#!" class="btn btn-primary">Add to Cart</a>
+                    <a href="#!" class="btn btn-primary">Add to Cart</a>
                 </div>
             </div>
         </div>
-    }
+        }
+    </div>
 </html>
