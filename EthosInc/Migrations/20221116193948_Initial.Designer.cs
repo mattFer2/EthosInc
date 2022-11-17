@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EthosInc.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221115162104_Initial")]
+    [Migration("20221116193948_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,6 +34,9 @@ namespace EthosInc.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Pictures")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
