@@ -1,6 +1,5 @@
-﻿
-@{
-    ViewData["Title"] = "Shop";
+﻿@{
+        ViewData["Title"] = "Shop";
 }
 
 <!DOCTYPE html>
@@ -8,33 +7,35 @@
     <meta charset="utf-8" />
 </head>
 <html>
+<body>
     <div class="text-center">
         <h1 class="display-4">Shop</h1>
-        <p>Here is a list of the products we currently have for sale.
-           <br/>
-           Press the "Add to Cart" button if you want to purchase an item.
+        <p>
+            Here is a list of the products we currently have for sale.
+            <br />
+            Press the "Add to Cart" button if you want to purchase an item.
         </p>
     </div>
-    
+
 
     <div class="card-deck">
         @model IEnumerable<Product>
         @foreach (var p in Model)
         {
         @* To-Do: Adjust the CSS to make it look better and have multiple items in one row *@
-        <div class="card bg-dark text-light w-100 m-1" style="">
-            <img class="card-img-top" style="min-height: 40%; max-height: 40%;" src="@p.Pictures">
+        <div class="card bg-dark text-light w-100 m-1" style="min-width: 30%">
+            <img class="card-img-top" style="min-height: 40%; max-height: 40%;" src="~/ProductImages/@p.ProductID/1.png" alt="@p.Name">
             <div class="card-body">
                 <div class="card-title">
                     <h3 style="text-decoration: underline;">@p.Name</h3>
                 </div>
                 <div class="card-text">
                     <h4>@p.Price.ToString("c")</h4>
-                    <h5>@p.Description</h5>
                     <a href="#!" class="btn btn-primary">Add to Cart</a>
                 </div>
             </div>
         </div>
         }
     </div>
+</body>
 </html>
