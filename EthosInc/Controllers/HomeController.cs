@@ -1,4 +1,5 @@
 ﻿using EthosInc.Models;
+using EthosInc.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -53,13 +54,6 @@ namespace EthosInc.Controllers
         {
             return View();
         }
-
-        [Route("Cart")]
-        public IActionResult Cart()
-        {
-            return View();
-        }
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -30,7 +30,15 @@
                         </div>
                         <div class="card-text">
                             <h4>@p.Price.ToString("c")</h4>
-                            <a href="#!" class="btn btn-primary">Add to Cart</a>
+                            <form id="@p.ProductID" asp-action="AddToCart"
+                              asp-controller="Cart" method="post" class="float-right m-2 p-1">
+                                <input type="hidden" asp-for="@p.ProductID" />
+                                <input type="hidden" name="returnUrl"
+                                        value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                                <button type="submit" class="btn btn-primary">
+                                    Add To Cart
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

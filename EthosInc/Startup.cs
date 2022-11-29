@@ -26,6 +26,11 @@ namespace EthosInc
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<IProductRepository, EFProductRepository>();
             services.AddMvc(options => options.EnableEndpointRouting = false);
+
+            services.AddMvc(options => options.EnableEndpointRouting = false)
+                .AddNewtonsoftJson();
+            services.AddMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +48,7 @@ namespace EthosInc
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseRouting();
 
@@ -59,6 +65,11 @@ namespace EthosInc
                 routes.MapRoute(
                 name: "default",
                 template: "{controller=Home}/{action=Shop}/{id?}");
+            });
+            app.UseMvc(routes => {
+                routes.MapRoute(
+                name: "default",
+                template: "{controller=Cart}/{action=Index}/{id?}");
             });
         }
     }
