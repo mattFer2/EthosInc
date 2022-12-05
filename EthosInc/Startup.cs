@@ -27,8 +27,7 @@ namespace EthosInc
             services.AddTransient<IProductRepository, EFProductRepository>();
             services.AddMvc(options => options.EnableEndpointRouting = false);
 
-            services.AddMvc(options => options.EnableEndpointRouting = false)
-                .AddNewtonsoftJson();
+            services.AddMvc(options => options.EnableEndpointRouting = false).AddNewtonsoftJson();
             services.AddMemoryCache();
             services.AddSession();
         }
@@ -54,22 +53,21 @@ namespace EthosInc
 
             app.UseAuthorization();
 
+            app.UseMvcWithDefaultRoute();
+            app.UseMvc(routes => {
+                routes.MapRoute(
+                name: "Shop",
+                template: "{controller=Home}/{action=Shop}/{id?}");
+            
+                routes.MapRoute(
+                name: "Cart",
+                template: "{controller=Cart}/{action=Index}/{id?}");
+            });
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
-            app.UseMvcWithDefaultRoute();
-            app.UseMvc(routes => {
-                routes.MapRoute(
-                name: "default",
-                template: "{controller=Home}/{action=Shop}/{id?}");
-            });
-            app.UseMvc(routes => {
-                routes.MapRoute(
-                name: "default",
-                template: "{controller=Cart}/{action=Index}/{id?}");
             });
         }
     }

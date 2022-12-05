@@ -28,6 +28,9 @@ namespace EthosInc.Controllers
         public RedirectToActionResult AddToCart(Guid productId, string returnUrl)
         {
             Product product = repository.Products.FirstOrDefault(p => p.ProductID == productId);
+            Console.WriteLine("test");
+            Console.WriteLine(productId);
+            Console.WriteLine(returnUrl);
             if (product != null)
             {
                 Cart cart = GetCart();
@@ -59,6 +62,7 @@ namespace EthosInc.Controllers
         private void SaveCart(Cart cart)
         {
             HttpContext.Session.SetJson("Cart", cart);
+            Console.WriteLine(cart);
         }
     }
 }
