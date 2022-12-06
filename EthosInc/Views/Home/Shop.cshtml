@@ -21,7 +21,6 @@
             @model IEnumerable<Product>
             @foreach (var p in Model)
             {
-            var id = "a8718a8e-707e-4b9c-8057-2d28f75bf236";
             @* To-Do: Adjust the CSS to make it look better and have multiple items in one row *@
                 <div class="card bg-dark text-light w-100 m-1" style="min-width: 30%">
                     <img class="card-img-top" style="min-height: 40%; max-height: 40%;" src="~/ProductImages/@p.ProductID/1.png" alt="@p.Name">

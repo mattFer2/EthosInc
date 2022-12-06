@@ -1,10 +1,13 @@
 using EthosInc.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Identity;
+using System;
 
 namespace EthosInc
 {
@@ -13,9 +16,7 @@ namespace EthosInc
         IConfigurationRoot Configuration;
         public Startup(IWebHostEnvironment env)
         {
-            Configuration = new ConfigurationBuilder()
-            .SetBasePath(env.ContentRootPath)
-            .AddJsonFile("appsettings.json").Build();
+            Configuration = new ConfigurationBuilder().SetBasePath(env.ContentRootPath).AddJsonFile("appsettings.json").Build();
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -25,8 +26,13 @@ namespace EthosInc
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<IProductRepository, EFProductRepository>();
-            services.AddMvc(options => options.EnableEndpointRouting = false);
+            services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddTransient<IOrderRepository, EFOrderRepository>();
 
+            services.AddIdentity<AppUser, IdentityRole<Guid>>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
+
+            services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddMvc(options => options.EnableEndpointRouting = false).AddNewtonsoftJson();
             services.AddMemoryCache();
             services.AddSession();
@@ -47,6 +53,7 @@ namespace EthosInc
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseAuthentication();
             app.UseSession();
 
             app.UseRouting();

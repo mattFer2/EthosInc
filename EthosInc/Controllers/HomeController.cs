@@ -55,6 +55,12 @@ namespace EthosInc.Controllers
             return View();
         }
 
+        [Route("Pay")]
+        public IActionResult Pay()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
