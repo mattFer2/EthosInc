@@ -4,10 +4,43 @@
 
 <!DOCTYPE html>
 <html>
-    <div class="text-center">
-        <h1 class="display-4">Welcome to Ethos Inc!</h1>       
-    </div>
-    <div class="subheader">
-        <p>We are a company that sells computer hardware. Important hyperlinks are listed above, and our products are listed below.</p>
-    </div>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="~/css/home.css" />
+        <style>
+            body {
+                background-image: url('home background.png');
+                background-repeat: no-repeat;
+                background-size: 100% 60%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="text-center">
+            <h1 class="display-4" style="color:#ffffff"><b>Welcome to Ethos Inc!</b></h1>
+        </div>
+        <div class="subheader">
+            <p style="color:#ffffff">We are a company that sells computer hardware. Important hyperlinks are listed above, and our products are listed below.</p>
+        </div>
+        <div class="box" style="right: 37.5%">
+            <p class="page">ABOUT</p>
+            <form action="About"><button class="button"><img src="~/about button.png" class="img" alt="buttonpng"></button></form>
+            <p class="description">Learn about us!</p>
+        </div>
+        <div class="box" style="right: 20%">
+            <p class="page">POLICIES</p>
+            <form action="Policy"><button class="button"><img src="~/policy button.png" class="img" alt="buttonpng"></button></form>
+            <p class="description">See our polices on shipping,<br>taxes, and more!</p>
+        </div>
+        <div class="box" style="left: 37.5%">
+            <p class="page">FAQ</p>
+            <form action="FAQ"><button class="button"><img src="~/faq button.png" class="img" alt="buttonpng"></button></form>
+            <p class="description">The answers to common<br>questions regarding our<br>company, products, etc.</p>
+        </div>
+        <div class="box" style="left: 20%">
+            <p class="page">SHOP</p>
+            <form action="Shop"><button href="Shop" class="button"><img src="~/shop button.png" class="img" alt="buttonpng"></button></form>
+            <p class="description">Browse through our<brgi>selection of products!</p>
+        </div>
+    </body>
 </html>
