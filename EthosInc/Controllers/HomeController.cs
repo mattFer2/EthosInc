@@ -23,9 +23,9 @@ namespace EthosInc.Controllers
         }
 
         /* Webpage Views */
-        public IActionResult Index()
+        public ViewResult Index()
         {
-            return View();
+            return View(repository.Products);
         }
 
         [Route("Policy")] /* [Route()] hides the "/home/" from the URL (https://stackoverflow.com/a/22828147) */
