@@ -17,12 +17,25 @@
     </head>
     <body>
         <div class="text-center">
-            <h1 class="display-4" style="color:#ffffff"><b>Welcome to Ethos Inc!</b></h1>
+            <h1 class="display-3" style="color:#ffffff; text-decoration: underline"><b>Welcome to Ethos Inc!</b></h1>
         </div>
         <div class="subheader">
-            <p style="color:#ffffff">We are a company that sells computer hardware. Important hyperlinks are listed above, and our products are listed below.</p>
+        <p style="color:#ffffff; font-size: larger">Our company provides an online service whereby customers may purchase<br/>
+                                                      from a wide selection of computer hardware products and have it shipped<br/>
+                                                      to them! We aim to provide the <b>best</b> online shopping experience and the<br/>
+                                                      <b>best</b> hardware for the <b>best</b> prices!</p>
         </div>
         <div class="row justify-content-center">
+            <div class="box">
+                <p class="page">SHOP</p>
+                <form action="Shop"><button class="button" style="border-radius: 15px"><img src="~/shop button.png" class="img" alt="buttonpng"></button></form>
+                <p class="description">Browse through our selection of products!</p>
+            </div>
+            <div class="box">
+                <p class="page">FAQ</p>
+                <form action="FAQ"><button class="button" style="border-radius: 15px"><img src="~/faq button.png" class="img" alt="buttonpng"></button></form>
+                <p class="description">The answers to common questions regarding our company, products, etc.</p>
+            </div>
             <div class="box">
                 <p class="page">ABOUT</p>
                 <form action="About"><button class="button" style="border-radius: 15px"><img src="~/about button.png" class="img" alt="buttonpng"></button></form>
@@ -33,44 +46,33 @@
                 <form action="Policy"><button class="button" style="border-radius: 15px"><img src="~/policy button.png" class="img" alt="buttonpng"></button></form>
                 <p class="description">See our polices on shipping, taxes, and more!</p>
             </div>
-            <div class="box">
-                <p class="page">FAQ</p>
-                <form action="FAQ"><button class="button" style="border-radius: 15px"><img src="~/faq button.png" class="img" alt="buttonpng"></button></form>
-                <p class="description">The answers to common questions regarding our company, products, etc.</p>
-            </div>
-            <div class="box">
-                <p class="page">SHOP</p>
-                <form action="Shop"><button class="button" style="border-radius: 15px"><img src="~/shop button.png" class="img" alt="buttonpng"></button></form>
-                <p class="description">Browse through our selection of products!</p>
-            </div>
         </div>
         <div class="text-center">
-            <h2 style="margin: 60px 0px 0px 0px;"><b>MOST POPULAR PRODUCTS</b></h2>
+            <h2 style="margin: 60px 0px 0px 0px; background-color: white"><b>MOST POPULAR PRODUCTS</b></h2>
         </div>
-    <div class="card-deck row justify-content-center">
-        @model IEnumerable<Product>
-        @{
-            List<Product> products = new List<Product>();
-            int i = 0;
-            foreach (var p in Model)
-            {
+        <div class="card-deck row justify-content-center">
+            @model IEnumerable<Product>
+            @{
+                List<Product> products = new List<Product>();
+                foreach (var p in Model)
+                {
                 products.Add(p);
-            }
-            for (var j = 0; j < 3; j++)
-            {
-                <div class="card bg-dark text-light w-100 m-1" style="max-width: 15%; min-width: 15%;">
-                    <img class="card-img-top" style="min-height: 40%; max-height: 40%;" src="~/ProductImages/@products[j].ProductID/1.png" alt="@products[j].Name">
-                    <div class="card-body">
-                        <div class="card-title product">
-                            <a href="Shop" style="all: unset; cursor: pointer; text-decoration: underline; font-size: small">@products[j].Name</a>
-                        </div>
-                        <div class="card-text">
-                            <h4>@products[j].Price.ToString("c")</h4>
+                }
+                for (var i = 0; i < 3; i++)
+                {
+                    <div class="card bg-dark text-light w-100 m-1" style="max-width: 15%; min-width: 15%;">
+                        <img class="card-img-top" style="min-height: 40%; max-height: 40%;" src="~/ProductImages/@products[i].ProductID/1.png" alt="@products[i].Name">
+                        <div class="card-body">
+                            <div class="card-title product">
+                                <a href="Shop" style="all: unset; cursor: pointer; text-decoration: underline; font-size: small">@products[i].Name</a>
+                            </div>
+                            <div class="card-text">
+                                <h4>@products[i].Price.ToString("c")</h4>
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
             }
-        }
-    </div>
+        </div>
     </body>
 </html>
