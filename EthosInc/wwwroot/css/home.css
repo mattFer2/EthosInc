@@ -1,6 +1,4 @@
-﻿namespace EthosInc.wwwroot.css
-
-.button {
+﻿.button {
     border: solid black;
     background-color: white;
 }

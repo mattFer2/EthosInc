@@ -1,0 +1,20 @@
+﻿
+.segment {
+    font-size: 48px;
+    text-decoration: underline;
+}
+
+.picture {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0px 20px 0px 0px
+}
+
+.role {
+    font-size: 28px;
+    margin-left: 10px;
+    padding-top: 8px;
+}
