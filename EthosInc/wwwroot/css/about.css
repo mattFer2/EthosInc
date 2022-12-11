@@ -1,4 +1,23 @@
 ﻿
+.cursor {
+    height: 60px;
+    margin-left: 3px;
+    width: 4px;
+    background: black;
+    opacity: 0;
+    display: inline-block;
+    animation: blink 0.5s step-start infinite alternate;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .segment {
     font-size: 48px;
     text-decoration: underline;
