@@ -1,10 +1,12 @@
 ﻿@{
         ViewData["Title"] = "Shop";
+        /* TO-DO: FIX THIS! Store the int as a cookie instead of on the page itself(?) */
+        int sort = 0;
 }
 
 <!DOCTYPE html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
 </head>
 <html>
     <body>
@@ -13,34 +15,130 @@
             <p>Here is a list of the products we currently have for sale.
                <br/>
                Press the "Add to Cart" button if you want to purchase an item.
+               <br/>
+               Use the "Sort by:" button to sort the items in the page.
             </p>
         </div>
-    
-        
+
+
+        <div class="row">
+            <div class="col">Items</div>
+            <div class="col" style="padding-right: 4px;">
+                <div class="btn-group" style="float: right;">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sort by:
+                    </button>
+                    @{
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <button class="dropdown-item" type="button">Default</button>
+                                <input type="hidden" name="productId" value=" @sort = 0;"/>
+                            <div class="dropdown-divider"></div>
+                            <button class="dropdown-item" type="button">Price (Ascending)</button>
+                            <button class="dropdown-item" type="button">Price (Descending)</button>
+                            @* <button class="dropdown-item" type="button">Category</button> *@
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
         <div class="card-deck">
             @model IEnumerable<Product>
-            @foreach (var p in Model)
-            {
-            @* To-Do: Adjust the CSS to make it look better and have multiple items in one row *@
-                <div class="card bg-dark text-light w-100 m-1" style="min-width: 30%">
-                    <img class="card-img-top" style="min-height: 40%; max-height: 40%;" src="~/ProductImages/@p.ProductID/1.png" alt="@p.Name">
-                    <div class="card-body">
-                        <div class="card-title">
-                            <h3 style="text-decoration: underline;">@p.Name</h3>
-                        </div>
-                        <div class="card-text">
-                            <h4>@p.Price.ToString("c")</h4>
-                            <form id="@p.ProductID" asp-action="AddToCart" asp-controller="Cart" method="post" class="float-right m-2 p-1">
-                            <input type="hidden" name="productId" value=" @p.ProductID" />
-                                <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
-                                <button type="submit" class="btn btn-primary">
-                                    Add To Cart
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+            @{
+                switch(sort)
+                {
+                    case 1:
+                        foreach (var p in Model.OrderBy(p => p.Price).ToList())
+                        {
+                                <div class="card bg-dark text-light w-100 m-1" style="min-width: 30%">
+                                    <img class="card-img-top" style="min-height: 40%; max-height: 40%;" src="~/ProductImages/@p.ProductID/1.png" alt="@p.Name">
+                                    <div class="card-body">
+                                        <div class="card-title">
+                                            <h3 title="@p.Name" style="height: 6em; overflow: clip;">@p.Name</h3>
+                                        </div>
+                                        <div class="card-footer" style="border-color: white;">
+                                            <div class="card-text">
+                                                <div class="float-left">
+                                                    <h4 style="margin-top: 0.7em;">@p.Price.ToString("c")</h4>
+                                                </div>
+                                                <div class="float-right">
+                                                    <form id="@p.ProductID" asp-action="AddToCart" asp-controller="Cart" method="post" class="float-right m-2 p-1">
+                                                    <input type="hidden" name="productId" value=" @p.ProductID" />
+                                                    <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                                                    <button type="submit" class="btn btn-primary">
+                                                        Add To Cart
+                                                    </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        }
+                        break;
+
+                    case 2:
+                        foreach (var p in Model.OrderByDescending(p => p.Price).ToList())
+                        {
+                                <div class="card bg-dark text-light w-100 m-1" style="min-width: 30%">
+                                    <img class="card-img-top" style="min-height: 40%; max-height: 40%;" src="~/ProductImages/@p.ProductID/1.png" alt="@p.Name">
+                                    <div class="card-body">
+                                        <div class="card-title">
+                                            <h3 title="@p.Name" style="height: 6em; overflow: clip;">@p.Name</h3>
+                                        </div>
+                                        <div class="card-footer" style="border-color: white;">
+                                            <div class="card-text">
+                                                <div class="float-left">
+                                                    <h4 style="margin-top: 0.7em;">@p.Price.ToString("c")</h4>
+                                                </div>
+                                                <div class="float-right">
+                                                    <form id="@p.ProductID" asp-action="AddToCart" asp-controller="Cart" method="post" class="float-right m-2 p-1">
+                                                    <input type="hidden" name="productId" value=" @p.ProductID" />
+                                                    <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                                                    <button type="submit" class="btn btn-primary">
+                                                        Add To Cart
+                                                    </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        }
+                        break;
+
+                    default:
+                        foreach (var p in Model)
+                        {
+                                <div class="card bg-dark text-light w-100 m-1" style="min-width: 30%">
+                                    <img class="card-img-top" style="min-height: 40%; max-height: 40%;" src="~/ProductImages/@p.ProductID/1.png" alt="@p.Name">
+                                    <div class="card-body">
+                                        <div class="card-title">
+                                            <h3 title="@p.Name" style="height: 6em; overflow: clip;">@p.Name</h3>
+                                        </div>
+                                        <div class="card-footer" style="border-color: white;">
+                                            <div class="card-text">
+                                                <div class="float-left">
+                                                    <h4 style="margin-top: 0.7em;">@p.Price.ToString("c")</h4>
+                                                </div>
+                                                <div class="float-right">
+                                                    <form id="@p.ProductID" asp-action="AddToCart" asp-controller="Cart" method="post" class="float-right m-2 p-1">
+                                                    <input type="hidden" name="productId" value=" @p.ProductID" />
+                                                    <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                                                    <button type="submit" class="btn btn-primary">
+                                                        Add To Cart
+                                                    </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        }
+                        break;
+                }
             }
+            
         </div>
     </body>
 </html>
