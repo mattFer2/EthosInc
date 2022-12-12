@@ -1,0 +1,6 @@
+﻿namespace EthosInc.wwwroot.css
+
+h3 {
+    max-height: 6em !important;
+    overflow: clip !important;
+}
