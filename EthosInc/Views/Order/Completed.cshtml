@@ -1,3 +1,17 @@
-﻿<h2>Thanks!</h2>
+﻿@{
+        ViewData["Title"] = "Shop";
+}
+
+<h2>Thanks!</h2>
 <p>Thanks for placing your order.</p>
 <p>We'll ship your goods as soon as possible.</p>
+
+@model IEnumerable<Order>
+@{
+    
+    @foreach (Order o in Model)
+    {
+        <h3>Your order ID is: @o.OrderID</h3>
+    }
+    
+}

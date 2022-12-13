@@ -17,10 +17,11 @@
     </head>
     <body>
         <div class="text-center">
-            <h1 class="display-3" style="color:#ffffff; text-decoration: underline"><b>Welcome to Ethos Inc!</b></h1>
+            <h1 class="display-3" style="color:#ffffff; text-decoration: underline; text-shadow: 1px 1px 3px black;"><b>Welcome to Ethos Inc!</b></h1>
         </div>
         <div class="subheader">
-        <p style="color:#ffffff; font-size: larger">Our company provides an online service whereby customers may purchase<br/>
+        <p style="color:#ffffff; font-size: larger; text-shadow: 1px 1px 3px black;">
+            Our company provides an online service whereby customers may purchase<br />
                                                       from a wide selection of computer hardware products and have it shipped<br/>
                                                       to them! We aim to provide the <b>best</b> online shopping experience and the<br/>
                                                       <b>best</b> hardware for the <b>best</b> prices!</p>
@@ -29,22 +30,22 @@
             <div class="box">
                 <p class="page">SHOP</p>
                 <form action="Shop"><button class="button" style="border-radius: 15px"><img src="~/shop button.png" class="img" alt="buttonpng"></button></form>
-                <p class="description">Browse through our selection of products!</p>
+                <p class="description" style="text-shadow: 1px 1px 3px black;">Browse through our selection of products!</p>
             </div>
             <div class="box">
                 <p class="page">FAQ</p>
                 <form action="FAQ"><button class="button" style="border-radius: 15px"><img src="~/faq button.png" class="img" alt="buttonpng"></button></form>
-                <p class="description">The answers to common questions regarding our company, products, etc.</p>
+                <p class="description" style="text-shadow: 1px 1px 3px black;">The answers to common questions regarding our company, products, etc.</p>
             </div>
             <div class="box">
                 <p class="page">ABOUT</p>
                 <form action="About"><button class="button" style="border-radius: 15px"><img src="~/about button.png" class="img" alt="buttonpng"></button></form>
-                <p class="description">Learn about us!</p>
+                <p class="description" style="text-shadow: 1px 1px 3px black;">Learn about us!</p>
             </div>
             <div class="box">
                 <p class="page">POLICIES</p>
                 <form action="Policy"><button class="button" style="border-radius: 15px"><img src="~/policy button.png" class="img" alt="buttonpng"></button></form>
-                <p class="description">See our polices on shipping, taxes, and more!</p>
+                <p class="description" style="text-shadow: 1px 1px 3px black;">See our polices on shipping, taxes, and more!</p>
             </div>
         </div>
         <div class="text-center">
@@ -60,17 +61,17 @@
                 }
                 for (var i = 0; i < 3; i++)
                 {
-                    <div class="card bg-dark text-light w-100 m-1" style="max-width: 15%; min-width: 15%;">
-                        <img class="card-img-top" style="min-height: 40%; max-height: 40%;" src="~/ProductImages/@products[i].ProductID/1.png" alt="@products[i].Name">
-                        <div class="card-body">
-                            <div class="card-title product">
-                                <a href="Shop" style="all: unset; cursor: pointer; text-decoration: underline; font-size: small">@products[i].Name</a>
-                            </div>
-                            <div class="card-text">
-                                <h4>@products[i].Price.ToString("c")</h4>
-                            </div>
-                        </div>
-                    </div>
+                                <div class="card bg-dark text-light w-100 m-1" style="max-width: 15%; min-width: 15%;">
+                                    <img class="card-img-top" style="min-height: 40%; max-height: 40%;" src="~/ProductImages/@products[i].ProductID/1.png" alt="@products[i].Name">
+                                    <div class="card-body">
+                                        <div class="card-title product">
+                                            <a href="Shop" style="all: unset; cursor: pointer; text-decoration: underline; font-size: small">@products[i].Name</a>
+                                        </div>
+                                        <div class="card-text">
+                                            <h4>@products[i].Price.ToString("c")</h4>
+                                        </div>
+                                    </div>
+                                </div>
                 }
             }
         </div>

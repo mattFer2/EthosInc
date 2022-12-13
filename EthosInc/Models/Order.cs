@@ -31,6 +31,7 @@ namespace EthosInc.Models
         [Required(ErrorMessage = "Please enter a state name")]
         public string State { get; set; }
 
+        [Required(ErrorMessage = "Please enter a valid ZIP code")]
         public string Zip { get; set; }
 
         [Required(ErrorMessage = "Please enter a country name")]
