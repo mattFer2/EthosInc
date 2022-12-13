@@ -12,7 +12,6 @@ namespace EthosInc.Controllers
         private Cart cart;
         public OrderController(IOrderRepository repoService, Cart cartService)
         {
-            Console.WriteLine("test");
             repository = repoService;
             cart = cartService;
         }
@@ -22,8 +21,7 @@ namespace EthosInc.Controllers
         [Authorize]
         public IActionResult MarkShipped(int orderID)
         {
-            Order order = repository.Orders
-            .FirstOrDefault(o => o.OrderID == orderID);
+            Order order = repository.Orders.FirstOrDefault(o => o.OrderID == orderID);
             if (order != null)
             {
                 order.Shipped = true;
